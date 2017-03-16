@@ -1,0 +1,39 @@
+$base-spacing-unit: 10px !default;
+
+.o-media {
+  @include clearfix();
+  display: block;
+}
+
+
+  .o-media__item {
+    float: left;
+    margin-right: $base-spacing-unit;
+    
+
+    > img {
+      display: block;
+    }
+
+  }
+  
+  .o-media__item--teaser {
+      max-height: 64px;
+  }
+  
+  .o-media__body--teaser{
+    position:relative;
+    top:-7px;
+  }
+
+
+  .o-media__body {
+    overflow: hidden;
+    display: block;
+
+    &,
+    > :last-child {
+      margin-bottom: 0;
+    }
+
+  }
