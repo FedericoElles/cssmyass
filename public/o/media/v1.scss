@@ -1,5 +1,9 @@
-$base-spacing-unit: 10px !default;
+@import "clearfix";
 
+$p1: 10px !default;
+$base-spacing-unit: $p1;
+
+  
 .o-media {
   @include clearfix();
   display: block;
@@ -16,16 +20,6 @@ $base-spacing-unit: 10px !default;
     }
 
   }
-  
-  .o-media__item--teaser {
-      max-height: 64px;
-  }
-  
-  .o-media__body--teaser{
-    position:relative;
-    top:-7px;
-  }
-
 
   .o-media__body {
     overflow: hidden;

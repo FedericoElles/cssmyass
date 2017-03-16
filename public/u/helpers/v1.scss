@@ -1,0 +1,38 @@
+$p1: #000000 !default;
+$base-color: $p1;
+
+$color-grey: lighten($base-color, 20%);
+$color-inverted: invert($base-color);
+
+.u-float-left{
+	float: left;
+}
+
+.u-float-right{
+	float: right;
+}
+
+.u-hidden{
+	display: none;
+}
+
+.u-color-invert {
+  color: $color-inverted;
+}
+
+.u-muted  {
+	color: $color-grey;
+}
+
+.u-strong {
+  font-weight: bold;
+}
+
+
+.u-inline {
+	display: inline-block;
+}
+
+.u-text-center {
+  text-align:center;
+}
