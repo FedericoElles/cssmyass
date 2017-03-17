@@ -27,6 +27,8 @@ hr {
 	padding: 0;
 }
 
+
+
 /* HTML5 display definitions
 ========================================================================== */
 
@@ -143,6 +145,8 @@ h1 {
 font-size: 2em;
 margin: 0.67em 0;
 }
+
+
 
 /**
 * Address styling not present in IE 8/9.
@@ -432,3 +436,9 @@ td,
 th {
 padding: 0;
 }	
+
+
+h1, h2, h3, h4, h5, h6{
+  font-size: 1em;
+  font-weight:normal;
+}
