@@ -35,12 +35,19 @@ app.get("/", function (req, res) {
       var item = {
         id: parts[2] + '-' + parts[3],
         version: parts[3].split('.').shift(),
-        url: '/get/' + (file.substr(9)).replace('.scss','') + '/'
+        url: '/get/' + (file.substr(9)).replace('.scss','') + '/',
+        params: ''
       };
       
       //meta info
       if (meta[item.id]){
         item.meta = meta[item.id];
+        
+        if(item.meta.params){
+          item.meta.params.forEach(function(param){
+            item.params += param.example + '/';
+          })
+        }
       }
       
       items.push(item);

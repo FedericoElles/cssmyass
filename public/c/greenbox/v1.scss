@@ -1,0 +1,55 @@
+$p1: 10px !default;
+$spacing-unit: $p1;
+/**
+ * Placeholder for non styled content
+ **/
+
+$green1: #c9df8a;
+$green2: #77ab59;
+$green3: #36802d;
+$green4: #234d20;
+$greenbg: #f0f7da;
+
+
+.c-greenbox {
+    border: 2px solid $green1;
+    margin: $spacing-unit;
+    padding: $spacing-unit;
+
+
+    &:before {
+        font-family: "Lucida Console", Monaco, monospace;        
+        content: attr(element); 
+        position: relative; 
+        display: block; 
+        float: right; 
+        font-size: 14px;
+        color: green;
+        top: -17px;
+        right: -13px;
+    }   
+}
+
+
+.c-greenbox .c-greenbox {
+    border: 1px solid $green2;
+}
+
+.c-greenbox .c-greenbox .c-greenbox {
+    border: 1px solid $green3;
+}
+
+.c-greenbox .c-greenbox .c-greenbox .c-greenbox{
+    border: 1px solid $green4;
+}
+
+.c-greenbox__info {
+    padding: $spacing-unit;
+    font-family: "Lucida Console", Monaco, monospace;
+    font-size: 12px;
+    background-color: $greenbg;
+}
+
+.c-greenbox__name {
+    font-weight:bold;
+}

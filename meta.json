@@ -3,9 +3,18 @@
     "title": "Media Layout: Image left with text on the right. Created at facebook.",
     "desc": "",
     "params": [{
-      "title": "base-spacing-unit",
+      "title": "spacing-unit",
       "desc": "",
       "example": "11px"
     }]
-  }
+  },
+  "c-greenbox": {
+    "title": "Placeholder for elements without a layout. Inspired by the green background in special effect filming",
+    "desc": "",
+    "params": [{
+      "title": "spacing-unit",
+      "desc": "",
+      "example": "11px"
+    }]
+  }  
 }

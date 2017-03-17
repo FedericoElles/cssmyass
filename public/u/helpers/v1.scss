@@ -28,11 +28,26 @@ $color-inverted: invert($base-color);
   font-weight: bold;
 }
 
+.u-uppercase {
+	text-transform: uppercase;
+}
 
 .u-inline {
 	display: inline-block;
 }
 
+.u-overflow-hidden {
+	overflow: hidden;
+}
+
 .u-text-center {
   text-align:center;
+}
+
+.u-text-right {
+	text-align: right;
+}
+
+.u-text-left {
+	text-align: left;
 }
