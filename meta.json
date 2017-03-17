@@ -1,0 +1,11 @@
+{
+  "o-media": {
+    "title": "Media Layout: Image left with text on the right. Created at facebook.",
+    "desc": "",
+    "params": [{
+      "title": "base-spacing-unit",
+      "desc": "",
+      "example": "11px"
+    }]
+  }
+}

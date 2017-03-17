@@ -1,0 +1,40 @@
+// Set your breakpoints' names and sizes
+$breakpoints: (
+	sm: 320,
+	md: 768,
+	lg: 1024
+);
+
+// Set breakpoint unit
+$unit: 'px';
+// Set you max columns
+$max-cols: 12;
+// Set columns you want to ignore separated by comma e.g 7,8
+$ignore: '3';
+
+@mixin u-grid-setup($namespace, $width) {
+
+  @media screen and (min-width: $width) {
+
+    @for $i from 1 through $max-cols {
+
+      // If is in the ingore list do nothing
+      @if (not index($ignore, $i)) {
+
+        $j: 1;
+
+        @while $j <= $i {
+          .u-#{$j}\/#{$i}\@#{$namespace} {
+              width: percentage($j/$i);
+          }
+
+          $j: $j + 1;
+        }
+      }
+    }
+  }
+}
+
+@each $version, $size in $breakpoints {
+  @include u-grid-setup( $version, $size + $unit );
+}

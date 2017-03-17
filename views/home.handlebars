@@ -1,0 +1,13 @@
+<h1>Example App: Home</h1>
+
+
+
+{{#each items}}
+      <h3>
+        <strong>{{id}}</strong>
+        {{meta.title}}
+      </h3>
+      <p><a href="{{url}}">{{url}}</a></p>
+      <iframe src="{{url}}" width="500" height="100"></iframe>   
+      
+{{/each}}

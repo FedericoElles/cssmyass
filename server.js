@@ -3,11 +3,19 @@
 
 // init project
 var express = require('express');
+var exphbs  = require('express-handlebars');
+
 var app = express();
+
+app.engine('handlebars', exphbs({defaultLayout: 'main'}));
+app.set('view engine', 'handlebars');
+
 var glob = require("glob")
 var fs = require("fs");
 var sass = require('node-sass'); 
 var compression = require('compression');
+
+var meta = require('./meta.json');
 
 // we've started you off with Express, 
 // but feel free to use whatever libs or frameworks you'd like through `package.json`.
@@ -17,8 +25,33 @@ app.use(express.static('public'));
 app.use(compression());
 
 // http://expressjs.com/en/starter/basic-routing.html
-app.get("/", function (request, response) {
-  response.sendFile(__dirname + '/views/index.html');
+app.get("/", function (req, res) {
+  //response.sendFile(__dirname + '/views/index.html');
+  glob("./public/?/**/*.scss", function (er, files) {
+    var items = [];
+    files.forEach(function(file){
+      var parts = file.split('/');
+      console.log(parts);
+      var item = {
+        id: parts[2] + '-' + parts[3],
+        version: parts[3].split('.').shift(),
+        url: '/get/' + (file.substr(9)).replace('.scss','') + '/'
+      };
+      
+      //meta info
+      if (meta[item.id]){
+        item.meta = meta[item.id];
+      }
+      
+      items.push(item);
+      
+    });
+    var data = {
+      items: items
+    };
+    res.render('home', data);  
+  })
+  
 });
 
 /*Return all available Styles*/
@@ -64,7 +97,7 @@ app.get("/get/:type/:name/:version/*", function (req, res) {
     //outputStyle: 'compressed'
   });
   res.setHeader("Content-Type", "text/css");
-  var header = '/* --------\n   Version: ' + data.version + '\n   Created: ' + new Date() + ' \n   -------- */\n';
+  var header = '/*  Version: ' + data.version + '  Created: ' + new Date() + ' */\n';
   data.css = header + style.css;  
   
   res.send(data.css);
