@@ -1,0 +1,49 @@
+$p1: #0074D9 !default;
+$primary: $p1;
+
+$p2: #3D9970 !default;
+$secondary: $p2;
+
+
+$p3: #CCCCCC !default;
+$muted: $p3;
+
+
+
+$theme: (
+  primary: $primary,
+  secondary: $secondary,
+  muted: $muted
+) !default;
+
+
+/// Themify mixin
+/// @param {Map} $themes [$themes] - Map of themes to use
+@mixin themify() {
+  // Properties to output, more can be added (e.g. `border-left-color`)
+  $properties: ('bc': 'border-color', 'bg':'background-color', 'color':'color');
+
+    // Iterate over the colors from the theme
+    @each $color-name, $color in $theme {
+      // Iterate over the properties
+      @each $property-name, $property in $properties {
+        // Create a selector
+        // e.g. `.theme .color-primary, .theme.color-primary`
+        u-#{$property-name}-#{$color-name} {
+          #{$property}: $color;
+        }
+      
+        u-#{$property-name}-#{$color-name}--light {
+          #{$property}: lighten($color, 20%);
+        }
+  
+        u-#{$property-name}-#{$color-name}--dark {
+          #{$property}: darken($color, 20%);
+        }
+      }
+    }
+  
+}
+
+
+@include themify();

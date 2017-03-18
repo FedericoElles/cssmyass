@@ -1,4 +1,22 @@
 {
+  "u-colors": {
+    "title": "Drop in three colors and get a readymade theme. A dream?",
+    "desc": "",
+    "params": [{
+      "title": "primary",
+      "desc": "",
+      "example": "red"
+    },{
+      "title": "secondary",
+      "desc": "",
+      "example": "#FF00"
+    },{
+      "title": "muted",
+      "desc": "",
+      "example": "grey"
+    }]
+  },
+
   "o-media": {
     "title": "Media Layout: Image left with text on the right. Created at facebook.",
     "desc": "",
