@@ -4,7 +4,6 @@ $primary: $p1;
 $p2: #3D9970 !default;
 $secondary: $p2;
 
-
 $p3: #CCCCCC !default;
 $muted: $p3;
 
@@ -16,13 +15,14 @@ $theme: (
   muted: $muted
 ) !default;
 
+$properties: ('bc': 'border-color', 'bg':'background-color', 'color':'color');
+
 
 /// Themify mixin
 /// @param {Map} $themes [$themes] - Map of themes to use
 @mixin themify() {
   // Properties to output, more can be added (e.g. `border-left-color`)
-  $properties: ('bc': 'border-color', 'bg':'background-color', 'color':'color');
-
+  
     // Iterate over the colors from the theme
     @each $color-name, $color in $theme {
       // Iterate over the properties
@@ -47,3 +47,52 @@ $theme: (
 
 
 @include themify();
+
+
+
+
+$colors: (
+
+'aqua'  #7FDBFF,
+'blue'  #0074D9,
+'navy'  #001F3F,
+'teal'  #39CCCC,
+'green' #2ECC40,
+'olive' #3D9970,
+'lime'  #01FF70,
+
+'yellow'  #FFDC00,
+'orange'  #FF851B,
+'red'     #FF4136,
+'fuchsia' #F012BE,
+'purple'  #B10DC9,
+'maroon'  #85144B,
+
+'white'  #FFFFFF,
+'silver' #DDDDDD,
+'gray'   #AAAAAA,
+'black'  #111111
+
+);
+
+
+
+@each $color-name, $color in $colors {
+
+
+  @each $property-name, $property in $properties {
+      // Create a selector
+      // e.g. `.theme .color-primary, .theme.color-primary`
+      u-#{$property-name}-#{$color-name} {
+        #{$property}: $color;
+      }
+
+      u-#{$property-name}-#{$color-name}--light {
+        #{$property}: lighten($color, 20%);
+      }
+
+      u-#{$property-name}-#{$color-name}--dark {
+        #{$property}: darken($color, 20%);
+      }
+  }
+}
