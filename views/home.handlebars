@@ -16,8 +16,13 @@
         
         {{>definition meta}}
         
+        <div class="u-1/5">
+          Compiled
+        </div>
         
-        <iframe src="{{url}}{{params}}" width="500" height="100"></iframe>   
+        <div class="u-4/5">
+          <iframe src="{{url}}{{params}}" width="500" height="100"></iframe>   
+        </div>
         <textarea cols=100 rows=1><link rel="stylesheet" href="{{url}}{{params}}"></textarea>
     </div>
   {{/each}}

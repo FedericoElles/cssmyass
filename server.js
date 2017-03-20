@@ -45,7 +45,7 @@ app.get("/", function (req, res) {
         
         if(item.meta.params){
           item.meta.params.forEach(function(param){
-            item.params += param.example + '/';
+            item.params += encodeURIComponent(param.example) + '/';
           })
         }
       }
@@ -90,7 +90,7 @@ app.get("/get/:type/:name/:version/*", function (req, res) {
   
   data.params.forEach(function(param, index){
     if (param){
-      data.scssParams += '$p' + (index+1) + ': '  + param + ';\n';
+      data.scssParams += '$p' + (index+1) + ': '  + decodeURIComponent(param) + ';\n';
     }
   });
   
