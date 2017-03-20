@@ -7,12 +7,23 @@ $secondary: $p2;
 $p3: #CCCCCC !default;
 $muted: $p3;
 
+// Functions
+// ---------- ---------- ---------- ---------- ----------
+// Add percentage of white to a color
+@function tint($color, $percent){
+  @return mix($color, white, $percent);
+}
+
+// Add percentage of black to a color
+@function shade($color, $percent){
+  @return mix($color, black, $percent);
+}
 
 
 $theme: (
-  primary: $primary,
-  secondary: $secondary,
-  muted: $muted
+  '1': $primary,
+  '2': $secondary,
+  'muted': $muted
 ) !default;
 
 $properties: ('bc': 'border-color', 'bg':'background-color', 'color':'color');
@@ -34,12 +45,17 @@ $properties: ('bc': 'border-color', 'bg':'background-color', 'color':'color');
         }
       
         u-#{$property-name}-#{$color-name}--light {
-          #{$property}: lighten($color, 20%);
+          #{$property}: tint($color, 20%);
         }
   
         u-#{$property-name}-#{$color-name}--dark {
-          #{$property}: darken($color, 20%);
+          #{$property}: shade($color, 20%);
         }
+
+        u-#{$property-name}-#{$color-name}--gray {
+          #{$property}: grayscale($color);
+        }
+
       }
     }
   
@@ -88,11 +104,11 @@ $colors: (
       }
 
       u-#{$property-name}-#{$color-name}--light {
-        #{$property}: lighten($color, 20%);
+        #{$property}: tint($color, 20%);
       }
 
       u-#{$property-name}-#{$color-name}--dark {
-        #{$property}: darken($color, 20%);
+        #{$property}: shade($color, 20%);
       }
   }
 }

@@ -16,6 +16,7 @@ var sass = require('node-sass');
 var compression = require('compression');
 
 var meta = require('./meta.json');
+var helper = require('./helper.js');
 
 // we've started you off with Express, 
 // but feel free to use whatever libs or frameworks you'd like through `package.json`.
@@ -38,6 +39,9 @@ app.get("/", function (req, res) {
         url: '/get/' + (file.substr(9)).replace('.scss','') + '/',
         params: ''
       };
+      
+      //demo url
+      item.urlDemo = item.url + '?demo=1';
       
       //meta info
       if (meta[item.id]){
@@ -79,13 +83,14 @@ app.get("/get", function (req,res){
 
 /*Return single style*/
 app.get("/get/:type/:name/:version/*", function (req, res) {
+  var isDemo = typeof req.query.demo !== 'undefined';
   var data = {
     type: req.params.type,
     name: req.params.name,
     version: req.params.version
   };
   
-  data.params = req.originalUrl.split('/').slice(5);
+  data.params = req.originalUrl.split('?').shift().split('/').slice(5);
   data.scssParams = '';
   
   data.params.forEach(function(param, index){
@@ -95,6 +100,7 @@ app.get("/get/:type/:name/:version/*", function (req, res) {
   });
   
   data.file = './public/'+data.type+'/' + data.name + '/' + data.version + '.scss';
+  data.fileDemo = './public/'+data.type+'/' + data.name + '/' + data.version + '.html';
   
   var scss = fs.readFileSync(data.file).toString();
   
@@ -103,11 +109,28 @@ app.get("/get/:type/:name/:version/*", function (req, res) {
     includePaths: ['./public/mixins/']//,
     //outputStyle: 'compressed'
   });
-  res.setHeader("Content-Type", "text/css");
+  
   var header = '/*  Version: ' + data.version + '  Created: ' + new Date() + ' */\n';
   data.css = header + style.css;  
   
-  res.send(data.css);
+  //if example is request
+  var isDemo = req.query.demo;
+  
+  if (!isDemo){
+    res.setHeader("Content-Type", "text/css");
+    res.send(data.css);
+  } else {
+    res.setHeader("Content-Type", "text/html");
+    //check if file available
+    var html = '';
+    //render css + file
+    helper.readFileOptional(data.fileDemo, 'Kein Beispiel vorhanden', function(fileData){
+      html += fileData;
+      res.send('<style>\n'+data.css+'\n</style>' + html);  
+    });
+    
+  }
+  
 });
 
 
