@@ -1,5 +1,6 @@
 
-<div class="o-wrapper u-space-all-3">
+<div class="o-wrapper">
+  <div class="u-space-all-3">
 
   <h1 class="u-h1">Overview</h1>
   <hr class="c-line c-line--3">
@@ -13,7 +14,7 @@
         </h3>
         
 
-        <p><a href="{{url}}{{params}}">{{url}}{{params}}</a></p>
+        <p></p>
         <p><a href="{{url}}{{params}}?demo=1">Demo</a></p>
         
         {{>definition meta}}
@@ -22,11 +23,18 @@
           Compiled
         </div>
         
+        <p>
+          <a target="iframe_{{@index}}" href="{{url}}{{params}}">CSS</a>
+          <a target="iframe_{{@index}}" href="{{url}}{{params}}?demo=1">Demo</a>
+          
+        </p>
+        
         <div class="u-4/5">
-          <iframe src="{{url}}{{params}}" width="500" height="100"></iframe>   
+          <iframe name="iframe_{{@index}}" src="{{url}}{{params}}?demo=1" width="500" height="300"></iframe>   
         </div>
-        <textarea cols=100 rows=1><link rel="stylesheet" href="{{url}}{{params}}"></textarea>
+        <textarea cols=100 rows=1><link rel="stylesheet" href="//cssmyass.glitch.me{{url}}{{params}}"></textarea>
     </div>
   {{/each}}
-  
+
+  </div>
 </div>

@@ -41,19 +41,19 @@ $properties: ('bc': 'border-color', 'bg':'background-color', 'color':'color');
         // Create a selector
         // e.g. `.theme .color-primary, .theme.color-primary`
         .u-#{$property-name}-#{$color-name} {
-          #{$property}: $color;
+          #{$property}: $color !important;
         }
       
         .u-#{$property-name}-#{$color-name}--light {
-          #{$property}: tint($color, 40%);
+          #{$property}: tint($color, 40%) !important;
         }
   
         .u-#{$property-name}-#{$color-name}--dark {
-          #{$property}: shade($color, 85%);
+          #{$property}: shade($color, 70%) !important;
         }
 
         .u-#{$property-name}-#{$color-name}--gray {
-          #{$property}: grayscale($color);
+          #{$property}: grayscale($color) !important;
         }
 
       }
@@ -100,15 +100,15 @@ $colors: (
       // Create a selector
       // e.g. `.theme .color-primary, .theme.color-primary`
       .u-#{$property-name}-#{$color-name} {
-        #{$property}: $color;
+        #{$property}: $color !important;
       }
 
       .u-#{$property-name}-#{$color-name}--light {
-        #{$property}: tint($color, 20%);
+        #{$property}: tint($color, 40%) !important;
       }
 
       .u-#{$property-name}-#{$color-name}--dark {
-        #{$property}: shade($color, 20%);
+        #{$property}: shade($color, 70%) !important;
       }
   }
 }

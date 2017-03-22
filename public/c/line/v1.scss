@@ -1,3 +1,6 @@
+@import "clearfix";
+
+
 $p1: black !default;
 $color: $p1;
 
@@ -18,7 +21,14 @@ $steps: $p3;
   .c-line--#{$i} {
     border-bottom-width: $stepsize*$i;
   }
+    // ... do something fancy with $c
+}
 
+@for $i from 1 through $steps {
+  .c-line--#{$i}\/#{$steps} {
+    @include clearfix();
+    width: $i*(100%/$steps);
+  }
     // ... do something fancy with $c
 }
 

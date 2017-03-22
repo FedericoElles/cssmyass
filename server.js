@@ -125,6 +125,10 @@ app.get("/get/:type/:name/:version/*", function (req, res) {
     var html = '';
     //render css + file
     var template = fs.readFileSync('./views/layouts/main.handlebars').toString();
+    
+    template = '<div class="o-wrapper u-space-horz-1"><h1 class="u-h1">' + data.type + '-' + data.name + '</h1>' + template + 
+      '</div>'
+    
     helper.readFileOptional(data.fileDemo, 'Kein Beispiel vorhanden', function(fileData){
       html += fileData;
       html = '<style>\n'+data.css+'\n</style>' + html;
