@@ -124,9 +124,11 @@ app.get("/get/:type/:name/:version/*", function (req, res) {
     //check if file available
     var html = '';
     //render css + file
+    var template = fs.readFileSync('./views/layouts/main.handlebars').toString();
     helper.readFileOptional(data.fileDemo, 'Kein Beispiel vorhanden', function(fileData){
       html += fileData;
-      res.send('<style>\n'+data.css+'\n</style>' + html);  
+      html = '<style>\n'+data.css+'\n</style>' + html;
+      res.send(template.replace('{{{body}}}', html));  
     });
     
   }

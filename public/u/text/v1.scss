@@ -1,0 +1,80 @@
+@import "inuit-font-size";
+
+$p1: 16px !default;
+$p2: 2px !default;
+$p3: 24px !default;
+$p4: #333333 !default;
+
+$inuit-global-font-size:    $p1 !default;
+$font-modificator: $p2 !default;
+$inuit-global-line-height:  $p3 !default;
+$font-color: $p4 !default;
+
+
+/* Default font and colors */
+
+body {
+  color: $font-color;
+  @include inuit-font-size($inuit-global-font-size, $important: false)
+}
+
+.u-muted, .u-muted-1{
+  color: lighten($font-color, 20%);
+}
+
+.u-muted-2{
+  color: lighten($font-color, 40%);
+}
+
+/* Line Height Helpers*/
+
+.u-line-height-1 {
+  line-height: 1;
+}
+
+
+/* Font Sizes*/
+
+
+$inuit-font-size-h1:  $inuit-global-font-size * 2 !default;
+$inuit-font-size-h2:  $inuit-global-font-size + $font-modificator * 6 !default;
+$inuit-font-size-h3:  $inuit-global-font-size + $font-modificator * 4 !default;
+$inuit-font-size-h4:  $inuit-global-font-size + $font-modificator * 2 !default;
+$inuit-font-size-h5:  $inuit-global-font-size + $font-modificator !default;
+$inuit-font-size-h6:  $inuit-global-font-size !default;
+
+.u-text-s {
+  @include inuit-font-size($inuit-global-font-size - $font-modificator, $important: false);
+}
+
+.u-text-xs {
+  @include inuit-font-size($inuit-global-font-size - $font-modificator * 2, $important: false);
+}
+
+.u-text-xxs {
+  @include inuit-font-size($inuit-global-font-size - $font-modificator * 3, $important: false);
+}
+
+.u-h1 {
+  @include inuit-font-size($inuit-font-size-h1, $important: true);
+}
+
+.u-h2 {
+  @include inuit-font-size($inuit-font-size-h2, $important: true);
+}
+
+.u-h3 {
+  @include inuit-font-size($inuit-font-size-h3, $important: true);
+}
+
+.u-h4 {
+  @include inuit-font-size($inuit-font-size-h4, $important: true);
+}
+
+.u-h5 {
+  @include inuit-font-size($inuit-font-size-h5, $important: true);
+}
+
+.u-h6 {
+  @include inuit-font-size($inuit-font-size-h6, $important: true);
+}
