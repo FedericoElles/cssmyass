@@ -16,7 +16,23 @@
       "example": "grey"
     }]
   },
-
+  "c-line": {
+    "title": "Is it just a line? With thickness, color and width configurable.",
+    "desc": "",
+    "params": [{
+      "title": "color",
+      "desc": "",
+      "example": "grey"
+    },{
+      "title": "stepsize",
+      "desc": "",
+      "example": "1px"
+    },{
+      "title": "steps",
+      "desc": "Divider of width and Multiplyer of thinkness. All in one.",
+      "example": "5"
+    }]
+  },
   "o-media": {
     "title": "Media Layout: Image left with text on the right. Created at facebook.",
     "desc": "",

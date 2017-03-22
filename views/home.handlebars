@@ -2,15 +2,17 @@
 <div class="o-wrapper">
   <div class="u-space-all-3">
 
-  <h1 class="u-h1">Overview</h1>
-  <hr class="c-line c-line--3">
-
+  <h1 class="u-h1">Overview
+  <hr class="c-line c-line--3 c-line--1/5">
+  </h1>
 
   {{#each items}}
     <div class="u-space-vert-2">
         <h3>
           <strong class="u-h2">{{id}}</strong>
-          <p class="u-h">{{meta.title}}</p>
+          <hr class="c-line c-line--1 c-line--1/5">
+
+          <p class="u-space-vert-2">{{meta.title}}</p>
         </h3>
         
 
@@ -30,7 +32,7 @@
         </p>
         
         <div class="u-4/5">
-          <iframe name="iframe_{{@index}}" src="{{url}}{{params}}?demo=1" width="500" height="300"></iframe>   
+          <iframe name="iframe_{{@index}}" src="{{url}}{{params}}?demo=1" width="100%" height="300"></iframe>   
         </div>
         <textarea cols=100 rows=1><link rel="stylesheet" href="//cssmyass.glitch.me{{url}}{{params}}"></textarea>
     </div>
