@@ -2,11 +2,39 @@
 <div class="o-wrapper">
   <div class="u-space-all-3">
 
-  <h1 class="u-h1">Overview
+  <h1 class="u-h1">CSSmyass Documentation
   <hr class="c-line c-line--3 c-line--1/5">
   </h1>
+  <p class="u-space-bottom-3">CSS BEM(IT)-style building blocks for rapid prototyping.</p>
+
+  <div class="u-space-bottom-3">
+    <p class="u-h3">Content</p>
+      <hr class="u-space-vert-1 c-line c-line--1 c-line--1/5">
+
+    {{#each items}}
+      <a href="#item_{{@index}}">{{id}}</a>
+      {{#if meta}}<span title="Has Meta Information" class="u-color-orange">✓</span>{{/if}}
+      <br>
+    {{/each}}
+  </div>
+  <div class="u-space-bottom-3">
+
+
+    <p class="u-h3">ToDo</p>
+    <hr class="u-space-vert-1 c-line c-line--1 c-line--1/5">
+    
+    u-shadow<br>
+    u-pull-up<br>
+    c-sidemenu<br>
+    c-definition<br>
+    ...
+  </div>
+
+
+
 
   {{#each items}}
+    <a name="item_{{@index}}"></a>
     <div class="u-space-vert-2">
         <h3>
           <strong class="u-h2">{{id}}</strong>
@@ -14,27 +42,26 @@
 
           <p class="u-space-vert-2">{{meta.title}}</p>
         </h3>
-        
+        <textarea cols=100 rows=1><link rel="stylesheet" href="//cssmyass.glitch.me{{url}}{{params}}"></textarea>
 
-        <p></p>
-        <p><a href="{{url}}{{params}}?demo=1">Demo</a></p>
-        
+        <div class="u-space-vert-2">
         {{>definition meta}}
-        
-        <div class="u-1/5">
-          Compiled
         </div>
+        
         
         <p>
           <a target="iframe_{{@index}}" href="{{url}}{{params}}">CSS</a>
+          <a href="{{url}}{{params}}"><i class="fa fa-external-link" aria-hidden="true"></i></a>
+          |
           <a target="iframe_{{@index}}" href="{{url}}{{params}}?demo=1">Demo</a>
+          <a href="{{url}}{{params}}?demo=1"><i class="fa fa-external-link" aria-hidden="true"></i></a>
+
           
         </p>
         
         <div class="u-4/5">
-          <iframe name="iframe_{{@index}}" src="{{url}}{{params}}?demo=1" width="100%" height="300"></iframe>   
+          <iframe onload="resizeIFrameToFitContent(this)" id="iframe_{{@index}}" name="iframe_{{@index}}" src="{{url}}{{params}}?demo=1" width="100%"  frameborder="0" border="0" cellspacing="0"></iframe>   
         </div>
-        <textarea cols=100 rows=1><link rel="stylesheet" href="//cssmyass.glitch.me{{url}}{{params}}"></textarea>
     </div>
   {{/each}}
 
