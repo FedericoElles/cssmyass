@@ -12,3 +12,11 @@ window.addEventListener('DOMContentReady', function(e) {
         resizeIFrameToFitContent( iframes[i] );
     }
 } );
+
+
+
+/* TABS */
+$('.c-tabs .c-tabs__tab').on('click', function(){
+  $(this).parent().children().removeClass('is-active');
+  $(this).addClass('is-active');
+});

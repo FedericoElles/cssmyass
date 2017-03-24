@@ -29,9 +29,12 @@ body {
 /* Line Height Helpers*/
 
 .u-line-height-1 {
-  line-height: 1;
+  line-height: 1 !important;
 }
 
+.u-line-height-0 {
+  line-height: 0 !important;
+}
 
 /* Font Sizes*/
 
@@ -56,25 +59,25 @@ $inuit-font-size-h6:  $inuit-global-font-size !default;
 }
 
 .u-h1 {
-  @include inuit-font-size($inuit-font-size-h1, $important: true);
+  @include inuit-font-size($inuit-font-size-h1, $important: false);
 }
 
 .u-h2 {
-  @include inuit-font-size($inuit-font-size-h2, $important: true);
+  @include inuit-font-size($inuit-font-size-h2, $important: false);
 }
 
 .u-h3 {
-  @include inuit-font-size($inuit-font-size-h3, $important: true);
+  @include inuit-font-size($inuit-font-size-h3, $important: false);
 }
 
 .u-h4 {
-  @include inuit-font-size($inuit-font-size-h4, $important: true);
+  @include inuit-font-size($inuit-font-size-h4, $important: false);
 }
 
 .u-h5 {
-  @include inuit-font-size($inuit-font-size-h5, $important: true);
+  @include inuit-font-size($inuit-font-size-h5, $important: false);
 }
 
 .u-h6 {
-  @include inuit-font-size($inuit-font-size-h6, $important: true);
+  @include inuit-font-size($inuit-font-size-h6, $important: false);
 }

@@ -2,10 +2,10 @@
 <div class="o-wrapper">
   <div class="u-space-all-3">
 
-  <h1 class="u-h1">CSSmyass Documentation
+  <h1 class="u-h1">CSSmyass* <span class="u-muted"> Documentation</span>
   <hr class="c-line c-line--3 c-line--1/5">
   </h1>
-  <p class="u-space-bottom-3">CSS BEM(IT)-style building blocks for rapid prototyping.</p>
+  <p class="u-space-bottom-3">CSS BEM(IT)-style building blocks for rapid prototyping. [*Working Title]</p>
 
   <div class="u-space-bottom-3">
     <p class="u-h3">Content</p>
@@ -49,15 +49,19 @@
         </div>
         
         
-        <p>
-          <a target="iframe_{{@index}}" href="{{url}}{{params}}">CSS</a>
-          <a href="{{url}}{{params}}"><i class="fa fa-external-link" aria-hidden="true"></i></a>
-          |
-          <a target="iframe_{{@index}}" href="{{url}}{{params}}?demo=1">Demo</a>
-          <a href="{{url}}{{params}}?demo=1"><i class="fa fa-external-link" aria-hidden="true"></i></a>
-
+        <div class="c-tabs">
+          <div class="c-tabs__tab is-active">
+            <a target="iframe_{{@index}}" href="{{url}}{{params}}?demo=1">Demo</a>
+            <a href="{{url}}{{params}}?demo=1"><i class="fa fa-external-link u-text-xs" aria-hidden="true"></i></a>
+          </div>
           
-        </p>
+          <div class="c-tabs__tab ">
+            <a target="iframe_{{@index}}" href="{{url}}{{params}}">CSS</a>
+            <a href="{{url}}{{params}}"><i class="fa fa-external-link u-text-xs" aria-hidden="true"></i></a>
+          </div>
+          
+          
+        </div>
         
         <div class="u-4/5">
           <iframe onload="resizeIFrameToFitContent(this)" id="iframe_{{@index}}" name="iframe_{{@index}}" src="{{url}}{{params}}?demo=1" width="100%"  frameborder="0" border="0" cellspacing="0"></iframe>   

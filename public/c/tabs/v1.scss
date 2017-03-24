@@ -1,0 +1,37 @@
+@import "clearfix";
+
+
+
+$p1: black !default;
+$color: $p1;
+
+$p2: 3px !default;
+$strength: $p2;
+
+
+$percent: 50%;
+$colorLine: mix($color, white, $percent);
+$colorDisabled: mix($color, white, $percent/2);
+
+.c-tabs {
+  display:block;
+  width: 100%;
+  border-bottom: 1px solid $colorLine; 
+}
+
+.c-tabs__tab {
+  display: inline-block;
+  color: $colorDisabled;
+  margin: 0 $strength*3;
+  padding-bottom: $strength*1.5;
+  
+  
+    
+  &.is-active, &:hover {
+    color: $color;
+    border-bottom: $strength solid $colorLine;
+    padding-bottom: $strength*0.5;
+  }
+}
+
+
