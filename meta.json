@@ -1,4 +1,8 @@
 {
+  "c-greenbox":{
+    "title": "Placeholder",
+    "desc": "Similar to a green screen during special effects filming, this classes help visualizing not yet designed element on a website."
+  },
   "u-colors": {
     "title": "Drop in three colors and get a readymade theme. A dream?",
     "desc": "",
