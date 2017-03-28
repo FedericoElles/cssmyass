@@ -1,9 +1,11 @@
 {
-  "c-greenbox":{
-    "title": "Placeholder",
-    "desc": "Similar to a green screen during special effects filming, this classes help visualizing not yet designed element on a website."
+  "c-def":{
+    "status": 1,
+    "title": "Definition List",
+    "desc": "Taken over from Bootstrap since it is so convenient. Since this is BEM, it does not rely on DL, DT and DD Tags."
   },
   "u-colors": {
+    "status": 2,
     "title": "Drop in three colors and get a readymade theme. A dream?",
     "desc": "",
     "params": [{
@@ -21,6 +23,7 @@
     }]
   },
   "c-line": {
+    "status": 3,
     "title": "Is it just a line? With thickness, color and width configurable.",
     "desc": "",
     "params": [{
@@ -37,7 +40,8 @@
       "example": "5"
     }]
   },
-  "o-media": {
+  "o-media": { 
+    "status": 3,
     "title": "Media Layout: Image left with text on the right. Created at facebook.",
     "desc": "",
     "params": [{
@@ -47,8 +51,8 @@
     }]
   },
   "c-greenbox": {
-    "title": "Placeholder for elements without a layout. Inspired by the green background in special effect filming",
-    "desc": "",
+    "title": "Placeholder",
+    "desc": "Placeholder for elements without a layout. Inspired by the green background in special effect filming",
     "params": [{
       "title": "spacing-unit",
       "desc": "",

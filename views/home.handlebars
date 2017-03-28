@@ -7,6 +7,7 @@
     {{#each items}}
       <a href="#item_{{@index}}">{{id}}</a>
       {{#if meta}}<span title="Has Meta Information" class="u-color-orange">✓</span>{{/if}}
+      {{#if meta.status}}({{meta.status}}){{/if}} 
       <br>
     {{/each}}
 
@@ -43,9 +44,9 @@
           <strong class="u-h2">{{id}}</strong>
           <hr class="c-line c-line--1 c-line--1/5">
 
-          <p class="u-space-vert-2">{{meta.title}}</p>
+          <p class="u-space-vert-2"><span class="u-bold">{{meta.title}}</span> {{#if meta.desc}}- {{meta.desc}}{{/if}}</p>
         </h3>
-        <textarea class="u-1/1" rows=1><link rel="stylesheet" href="//cssmyass.glitch.me{{url}}{{params}}"></textarea>
+        <textarea class="u-1/1@sm" rows=1><link rel="stylesheet" href="//cssmyass.glitch.me{{url}}{{params}}"></textarea>
 
         <div class="u-space-vert-2">
         {{>definition meta}}
@@ -66,8 +67,8 @@
           
         </div>
         
-        <div class="u-4/5">
-          <iframe onload="resizeIFrameToFitContent(this)" id="iframe_{{@index}}" name="iframe_{{@index}}" src="{{url}}{{params}}?demo=1" width="100%"  frameborder="0" border="0" cellspacing="0"></iframe>   
+        <div class="u-space-top-1">
+          <iframe onload="resizeIFrameToFitContent(this)" id="iframe_{{@index}}" name="iframe_{{@index}}" src="{{url}}{{params}}?demo=1&frame=1" width="100%"  frameborder="0" border="0" cellspacing="0"></iframe>   
         </div>
     </div>
   {{/each}}
