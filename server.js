@@ -84,6 +84,8 @@ app.get("/get", function (req,res){
 /*Return single style*/
 app.get("/get/:type/:name/:version/*", function (req, res) {
   var isDemo = typeof req.query.demo !== 'undefined';
+  var isInFrame = typeof req.query.frame === 'undefined';
+
   var data = {
     type: req.params.type,
     name: req.params.name,
@@ -126,8 +128,10 @@ app.get("/get/:type/:name/:version/*", function (req, res) {
     //render css + file
     var template = fs.readFileSync('./views/layouts/main.handlebars').toString();
     
+    if (isInFrame){
     template = '<div class="o-wrapper u-space-horz-1"><h1 class="u-h1">' + data.type + '-' + data.name + '</h1>' + template + 
       '</div>'
+    }
     
     helper.readFileOptional(data.fileDemo, 'Kein Beispiel vorhanden', function(fileData){
       html += fileData;
