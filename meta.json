@@ -95,5 +95,23 @@
       "desc": "base color, will be also available as inverted and muted color",
       "example": "#111"
     }]
-  }   
+  },
+  "u-grid": {
+    "status": 1,
+    "title": "Like tables",
+    "desc": "Yeah, everyone uses bootstrap, but this is only nice",
+    "params": [{
+      "title": "sm breakpoint",
+      "desc": "without the px measurement",
+      "example": "360"
+    },{
+      "title": "md breakpoint",
+      "desc": "without the px measurement",
+      "example": "640"
+    },{
+      "title": "lg breakpoint",
+      "desc": "without the px measurement",
+      "example": "940"
+    }]
+  }    
 }

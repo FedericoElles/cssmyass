@@ -1,8 +1,6 @@
 $p1: #000000 !default;
 $base-color: $p1;
 
-$color-grey: lighten($base-color, 20%);
-$color-inverted: invert($base-color);
 
 .u-float-left{
 	float: left;
