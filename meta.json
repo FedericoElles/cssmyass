@@ -51,6 +51,7 @@
     }]
   },
   "c-greenbox": {
+    "status": 3,
     "title": "Placeholder",
     "desc": "Placeholder for elements without a layout. Inspired by the green background in special effect filming",
     "params": [{
@@ -58,5 +59,41 @@
       "desc": "",
       "example": "11px"
     }]
-  }  
+  },
+  "c-tabs": {
+    "status": 0,
+    "title": "Minimalist Tabs",
+    "desc": "No animation, but useable for now",
+    "params": [{
+      "title": "color",
+      "desc": "Color of the line and text",
+      "example": "red"
+    },{
+      "title": "strength",
+      "desc": "Thickness of the active tab line",
+      "example": "4px"
+    }]
+  },
+  "u-text": {
+    "status": 1,
+    "title": "Headings and text utilities",
+    "desc": "Large test, small text, muted text, strong text: we cover it all",
+    "params": [{
+      "title": "font size",
+      "desc": "",
+      "example": "16px"
+    },{
+      "title": "modificator",
+      "desc": "makes the heading size grows by 2x, 4x, 6x a.s.o",
+      "example": "2px"
+    },{
+      "title": "line height",
+      "desc": "",
+      "example": "24px"
+    },{
+      "title": "font color",
+      "desc": "base color, will be also available as inverted and muted color",
+      "example": "#111"
+    }]
+  }   
 }

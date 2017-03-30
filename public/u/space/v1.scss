@@ -28,7 +28,7 @@ $spacing-unit: $p1;
 			}
 
 			// Build a class for all Directions
-			.u-space-all-#{$space-col} {
+			.u-space-all-#{$space-col}, .u-space-#{$space-col} {
 				margin: ($spacing-unit * $space-col);
 			}			
 
@@ -38,3 +38,27 @@ $spacing-unit: $p1;
 
 
 @include spaces(1 2 3 4);
+
+
+/* Padding */
+.u-pad-xs {
+	padding: $spacing-unit*(3/8);
+}			
+
+.u-pad-s {
+	padding: $spacing-unit*(5/8);
+}			
+
+
+.u-pad, .u-pad-m {
+	padding: $spacing-unit;
+}			
+
+.u-pad-l {
+	padding: $spacing-unit*1.5;
+}		
+
+.u-pad-xl {
+	padding: $spacing-unit*2;
+}
+

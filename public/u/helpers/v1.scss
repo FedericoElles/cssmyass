@@ -16,21 +16,7 @@ $color-inverted: invert($base-color);
 	display: none;
 }
 
-.u-color-invert {
-  color: $color-inverted;
-}
 
-.u-muted  {
-	color: $color-grey;
-}
-
-.u-strong {
-  font-weight: bold;
-}
-
-.u-uppercase {
-	text-transform: uppercase;
-}
 
 .u-inline {
 	display: inline-block;
@@ -45,17 +31,7 @@ $color-inverted: invert($base-color);
 	overflow: hidden;
 }
 
-.u-text-center {
-  text-align:center;
-}
 
-.u-text-right {
-	text-align: right;
-}
-
-.u-text-left {
-	text-align: left;
-}
 
 .u-fit {
   max-width: 100%;

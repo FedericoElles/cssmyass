@@ -26,18 +26,26 @@ body {
   color: lighten($font-color, 40%);
 }
 
-.u-bold {
+.u-bold, .u-strong {
   font-weight: 700;
 }
 
 /* Line Height Helpers*/
 
+.u-line-height-1\/2 {
+  line-height: 0.5 !important;
+}
+
 .u-line-height-1 {
   line-height: 1 !important;
 }
 
-.u-line-height-0 {
-  line-height: 0 !important;
+.u-line-height-1-1\/2 {
+  line-height: 1.5 !important;
+}
+
+.u-line-height-2 {
+  line-height: 2 !important;
 }
 
 /* Font Sizes*/
@@ -84,4 +92,30 @@ $inuit-font-size-h6:  $inuit-global-font-size !default;
 
 .u-h6 {
   @include inuit-font-size($inuit-font-size-h6, $important: false);
+}
+
+
+/* Helpers*/
+
+
+.u-text-center {
+  text-align:center;
+}
+
+.u-text-right {
+	text-align: right;
+}
+
+.u-text-left {
+	text-align: left;
+}
+
+
+.u-inverted {
+  color: invert($font-color);;
+}
+
+
+.u-uppercase {
+	text-transform: uppercase;
 }

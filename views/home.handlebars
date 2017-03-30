@@ -1,29 +1,44 @@
 
 <div class="c-sidenav">
   <div class="u-space-all-2">
-    <p class="u-h3">Content</p>
-      <hr class="u-space-vert-1 c-line c-line--1 c-line--1/5">
+  
+    <button class="js-sidenav-toggle">Close</button>
+  
+    <p class="u-h5">Content</p>
+      <hr class="u-space-vert-1 c-line c-line--1 u-bc-silver">
 
     {{#each items}}
-      <a href="#item_{{@index}}">{{id}}</a>
-      {{#if meta}}<span title="Has Meta Information" class="u-color-orange">✓</span>{{/if}}
-      {{#if meta.status}}({{meta.status}}){{/if}} 
-      <br>
+      {{#if isClass}}
+        <a href="#item_{{@index}}">{{id}}</a>
+        {{#if meta}}<span title="Has Meta Information" class="u-color-orange">✓</span>{{/if}}
+        {{#if meta}}
+          <i class="fa fa-circle {{#if meta.isDev}}u-color-red{{/if}}{{#if meta.isPrototype}}u-color-orange{{/if}}{{#if meta.isStable}}u-color-green{{/if}}{{#if meta.isFrozen}}u-color-blue{{/if}}" aria-hidden="true"></i>
+        {{/if}} 
+        <br>
+      {{else}}
+
+        {{#if title}}
+          <h3 class="u-h3 u-space-top-2">{{title}}</h3>
+          <hr class="u-space-vert-1 c-line c-line--1 c-line--1/5">
+        {{/if}}      
+  
+      {{/if}}        
     {{/each}}
 
 
     <p class="u-space-top-2 u-h3">ToDo</p>
     <hr class="u-space-vert-1 c-line c-line--1 c-line--1/5">
     
-    u-shadow<br>
     u-pull-up<br>
-    c-sidemenu<br>
-    c-definition<br>
     ...
+  
   </div>
 </div>
 
 
+<div>
+  <button class="js-sidenav-toggle">Menu</button>
+</div>
 
 <div class="o-wrapper">
   <div class="u-space-all-3">
@@ -38,8 +53,12 @@
 
 
   {{#each items}}
+  
+    {{#if isClass}}
+    
+  
     <a name="item_{{@index}}"></a>
-    <div class="u-space-vert-2">
+    <div class="u-space-top-2 u-space-bottom-4">
         <h3>
           <strong class="u-h2">{{id}}</strong>
           <hr class="c-line c-line--1 c-line--1/5">
@@ -71,6 +90,14 @@
           <iframe onload="resizeIFrameToFitContent(this)" id="iframe_{{@index}}" name="iframe_{{@index}}" src="{{url}}{{params}}?demo=1&frame=1" width="100%"  frameborder="0" border="0" cellspacing="0"></iframe>   
         </div>
     </div>
+    
+    {{else}}
+    
+      <h2 class="u-h2">{{title}}</h2>
+    
+    {{/if}}
+
+    
   {{/each}}
 
   </div>

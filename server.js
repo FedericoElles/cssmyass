@@ -30,10 +30,13 @@ app.get("/", function (req, res) {
   //response.sendFile(__dirname + '/views/index.html');
   glob("./public/?/**/*.scss", function (er, files) {
     var items = [];
+    var itemsNew = [];
     files.forEach(function(file){
       var parts = file.split('/');
       console.log(parts);
       var item = {
+        type: 'class',
+        isClass:true,
         id: parts[2] + '-' + parts[3],
         version: parts[3].split('.').shift(),
         url: '/get/' + (file.substr(9)).replace('.scss','') + '/',
@@ -47,6 +50,23 @@ app.get("/", function (req, res) {
       if (meta[item.id]){
         item.meta = meta[item.id];
         
+        if (typeof item.meta.status !== 'undefined'){
+          switch (item.meta.status){
+            case 0:
+              item.meta.isDev = true;
+              break;
+            case 1:
+              item.meta.isPrototype = true;
+              break;
+            case 2:
+              item.meta.isStable = true;
+              break;
+            case 3:
+              item.meta.isFrozen = true;
+              break;
+          }
+        }
+        
         if(item.meta.params){
           item.meta.params.forEach(function(param){
             item.params += encodeURIComponent(param.example) + '/';
@@ -56,9 +76,45 @@ app.get("/", function (req, res) {
       
       items.push(item);
       
+
+      
     });
+
+    
+    function compare(a,b) {
+      if (a.id < b.id)
+        return -1;
+      if (a.id > b.id)
+        return 1;
+      return 0;
+    }
+
+
+    items.sort(compare);
+
+    var currentType = '';
+    var typeMap = {
+      'c': 'Component',
+      'o': 'Object',
+      'u': 'Utility'
+    };
+
+
+    items.forEach(function(item, index){
+      //console.log('item', item, item.id);
+      var type = item['id'].substr(0,1);
+      if (type !== currentType){
+        itemsNew.push(index, 0, {
+          type: 'title',
+          title: typeMap[type]
+        });
+        currentType = type;
+      }
+      itemsNew.push(item);
+    })    
+    
     var data = {
-      items: items
+      items: itemsNew
     };
     res.render('home', data);  
   })

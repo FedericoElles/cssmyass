@@ -16,13 +16,16 @@ body {
   width: 200px;
   border-right: 1px solid grey;
   background-color: white;
-  overflow: overflow-y;
+  overflow-y: auto;
 
   @media (max-width: 1139px){
     display: none;
   }
 
+}
 
+body.js-sidenav .c-sidenav{
+   display: block !important;
 }
 
 .c-sidenav__item {
