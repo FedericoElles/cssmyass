@@ -50,6 +50,17 @@
       "example": "11px"
     }]
   },
+  "o-layout": { 
+    "status": 3,
+    "title": "Basic class for any grid. Work nice together with u-SIZE.",
+    "desc": "",
+    "params": [{
+      "title": "spacing-unit",
+      "desc": "",
+      "example": "11px"
+    }]
+  },
+
   "c-greenbox": {
     "status": 3,
     "title": "Placeholder",

@@ -23,12 +23,11 @@ $ignore: '3';
 
 $prefix: \@;
 
-@mixin u-grid-setup($namespace, $width) {
+@mixin u-grid-setup($width, $namespace:'') {
   
-  
-  
+  $prefix2: $prefix;
   @if $namespace == '' {
-    $prefix: '';
+    $prefix2: '';
   }  
 
 
@@ -42,7 +41,7 @@ $prefix: \@;
         $j: 1;
 
         @while $j <= $i {
-          .u-#{$j}\/#{$i}#{$prefix}#{$namespace} {
+          .u-#{$j}\/#{$i}#{$prefix2}#{$namespace} {
               width: percentage($j/$i);
           }
 
@@ -55,10 +54,10 @@ $prefix: \@;
 }
 
 @each $version, $size in $breakpoints {
-  @include u-grid-setup( $version, $size + $unit );
+  @include u-grid-setup( $size + $unit, $version );
 }
 
-@include u-grid-setup( '', 0);
+@include u-grid-setup(0);
 
 
 
