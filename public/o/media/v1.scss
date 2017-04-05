@@ -1,0 +1,33 @@
+@import "clearfix";
+
+$p1: 10px !default;
+$base-spacing-unit: $p1;
+
+  
+.o-media {
+  @include clearfix();
+  display: block;
+}
+
+
+  .o-media__item {
+    float: left;
+    margin-right: $base-spacing-unit;
+    
+
+    > img {
+      display: block;
+    }
+
+  }
+
+  .o-media__body {
+    overflow: hidden;
+    display: block;
+
+    &,
+    > :last-child {
+      margin-bottom: 0;
+    }
+
+  }

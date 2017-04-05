@@ -1,0 +1,12 @@
+@import "clearfix";
+
+$p1: 940px !default;
+$breakpoint-lg: $p1;
+
+
+.o-wrapper {
+    @include clearfix();
+    max-width: $breakpoint-lg;
+    margin-right: auto;
+    margin-left:  auto;
+}

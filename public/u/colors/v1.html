@@ -1,0 +1,110 @@
+<script>
+var colors = [
+  'aqua' ,
+  'blue' ,
+  'navy' ,
+  'teal' ,
+  'green',
+  'olive',
+  'lime' ,
+  'yellow' ,
+  'orange' ,
+  'red'    ,
+  'fuchsia',
+  'purple' ,
+  'maroon' ,
+  'white' ,
+  'silver',
+  'gray' ,
+  'black' 
+];
+  
+var customColors = [{title: 'Primary Color', suffix: '1'}, {title: 'Secondary Color', suffix: '2'}, {title: 'Muted Color', suffix: 'muted'}];
+  
+var variants = ['--light', '', '--dark'];
+
+var properties = ['color', 'bg', 'bc'];  
+  
+/*
+ * u-color-1
+ */
+</script>
+
+
+<style>
+
+.c-colorbox {
+
+}
+  
+  .c-colorbox__color {
+    display: inline-block;
+    height:20px;
+    width:20px;
+    margin-right: 10px;
+    vertical-align: bottom;
+  }
+  
+</style>
+
+  
+
+<div id="target"></div>
+  
+  
+  
+<script id="color" type="text/template">
+  <div class="c-colorbox">
+     <span class="c-colorbox__color {{class}}" ></span> {{title}}
+  </div> 
+</script>
+
+<script id="title" type="text/template">
+  <h2 class="u-h3 u-space-vert-1">
+     {{title}}
+  </h2> 
+</script>
+
+<script>
+
+  var $target = $('#target');
+  var template = {
+    'color': $('#color').html(),
+    'title': $('#title').html()
+  };
+  
+  function defaultColor(color){
+    var html = template.color;
+    html = html.replace(/{{class}}/g, 'u-bg-' + color);
+    html = html.replace(/{{title}}/g, 'u-color-' + color);
+    return html;
+  }
+  
+  function title(name){
+    var html = template.title;
+    html = html.replace(/{{title}}/g, name);
+    return html;
+  }
+  
+  var html = '';
+  
+  
+  customColors.forEach(function(cColor){
+  
+    html += title(cColor.title);
+    variants.forEach(function(variant){  
+      html += defaultColor(cColor.suffix + variant);
+    });
+  });
+  
+
+  
+  
+  html += title('Default Colors');
+  
+  colors.forEach(function(color){
+    html += defaultColor(color);
+  });
+  $target.html(html);
+  
+</script>

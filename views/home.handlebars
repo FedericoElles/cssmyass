@@ -1,0 +1,104 @@
+
+<div class="c-sidenav">
+  <div class="u-space-all-2">
+  
+    <button class="js-sidenav-toggle">Close</button>
+  
+    <p class="u-h5">Content</p>
+      <hr class="u-space-vert-1 c-line c-line--1 u-bc-silver">
+
+    {{#each items}}
+      {{#if isClass}}
+        <a href="#item_{{@index}}">{{id}}</a>
+        {{#if meta}}<span title="Has Meta Information" class="u-color-orange">✓</span>{{/if}}
+        {{#if meta}}
+          <i class="fa fa-circle {{#if meta.isDev}}u-color-red{{/if}}{{#if meta.isPrototype}}u-color-orange{{/if}}{{#if meta.isStable}}u-color-green{{/if}}{{#if meta.isFrozen}}u-color-blue{{/if}}" aria-hidden="true"></i>
+        {{/if}} 
+        <br>
+      {{else}}
+
+        {{#if title}}
+          <h3 class="u-h3 u-space-top-2">{{title}}</h3>
+          <hr class="u-space-vert-1 c-line c-line--1 c-line--1/5">
+        {{/if}}      
+  
+      {{/if}}        
+    {{/each}}
+
+
+    <p class="u-space-top-2 u-h3">ToDo</p>
+    <hr class="u-space-vert-1 c-line c-line--1 c-line--1/5">
+    
+    u-pull-up<br>
+    ...
+  
+  </div>
+</div>
+
+
+<div>
+  <button class="js-sidenav-toggle">Menu</button>
+</div>
+
+<div class="o-wrapper">
+  <div class="u-space-all-3">
+
+  <h1 class="u-h1">CSSmyass* <span class="u-muted"> Documentation</span>
+  <hr class="c-line c-line--3 c-line--1/5">
+  </h1>
+  <p class="u-space-bottom-3">CSS BEM(IT)-style building blocks for rapid prototyping. [*Working Title]</p>
+
+  
+
+
+
+  {{#each items}}
+  
+    {{#if isClass}}
+    
+  
+    <a name="item_{{@index}}"></a>
+    <div class="u-space-top-2 u-space-bottom-4">
+        <h3>
+          <strong class="u-h2">{{id}}</strong>
+          <hr class="c-line c-line--1 c-line--1/5">
+
+          <p class="u-space-vert-2"><span class="u-bold">{{meta.title}}</span> {{#if meta.desc}}- {{meta.desc}}{{/if}}</p>
+        </h3>
+        <textarea class="u-1/1@sm" rows=1><link rel="stylesheet" href="//cssmyass.glitch.me{{url}}{{params}}"></textarea>
+
+        <div class="u-space-vert-2">
+        {{>definition meta}}
+        </div>
+        
+        
+        <div class="c-tabs">
+          <div class="c-tabs__tab is-active">
+            <a target="iframe_{{@index}}" href="{{url}}{{params}}?demo=1&frame=1">Demo</a>
+            <a target="_blank" href="{{url}}{{params}}?demo=1"><i class="fa fa-external-link u-text-xs" aria-hidden="true"></i></a>
+          </div>
+          
+          <div class="c-tabs__tab ">
+            <a target="iframe_{{@index}}" href="{{url}}{{params}}">CSS</a>
+            <a target="_blank" href="{{url}}{{params}}"><i class="fa fa-external-link u-text-xs" aria-hidden="true"></i></a>
+          </div>
+          
+          
+        </div>
+        
+        <div class="u-space-top-1">
+          <iframe onload="resizeIFrameToFitContent(this)" id="iframe_{{@index}}" name="iframe_{{@index}}" src="{{url}}{{params}}?demo=1&frame=1" width="100%"  frameborder="0" border="0" cellspacing="0"></iframe>   
+        </div>
+    </div>
+    
+    {{else}}
+    
+      <h2 class="u-h2">{{title}}</h2>
+    
+    {{/if}}
+
+    
+  {{/each}}
+
+  </div>
+</div>

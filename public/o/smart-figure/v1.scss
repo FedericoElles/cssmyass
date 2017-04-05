@@ -1,0 +1,17 @@
+/**
+ * Aligning Text Smartly in CSS
+ * via http://nocode.in/aligning-text-smartly-in-css/
+ */
+
+.o-smart-figure {
+  // width: 420px;
+  // border: 1px solid orange;
+  // padding: 10px;
+  text-align: center; /* Set text align to center */
+  float: left;
+  //margin: $spacing-unit;
+}
+.o-smart-figure__caption {
+  display: inline-block; /* Set this element to inline-block */
+  text-align: left; /* Set text align to left */
+}

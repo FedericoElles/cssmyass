@@ -1,0 +1,40 @@
+$p1: #000000 !default;
+$base-color: $p1;
+
+
+.u-float-left{
+	float: left;
+}
+
+.u-float-right{
+	float: right;
+}
+
+.u-hidden{
+	display: none;
+}
+
+
+
+.u-inline {
+	display: inline-block;
+}
+
+.u-block {
+	display: block;
+}
+
+
+.u-overflow-hidden {
+	overflow: hidden;
+}
+
+
+
+.u-fit {
+  max-width: 100%;
+}
+
+.u-stretch {
+  width:100%;
+}

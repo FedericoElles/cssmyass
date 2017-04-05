@@ -1,0 +1,33 @@
+body {
+  @media (min-width: 1140px){
+    margin-left:200px;
+  }
+  @media (max-width: 1139px){
+    margin-left:0px;
+  }
+
+}
+
+.c-sidenav {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  width: 200px;
+  border-right: 1px solid grey;
+  background-color: white;
+  overflow-y: auto;
+
+  @media (max-width: 1139px){
+    display: none;
+  }
+
+}
+
+body.js-sidenav .c-sidenav{
+   display: block !important;
+}
+
+.c-sidenav__item {
+  
+}

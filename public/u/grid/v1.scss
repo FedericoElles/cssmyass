@@ -1,0 +1,82 @@
+$p1: 750 !default;
+$breakpoint-sm: $p1;
+
+$p2: 970 !default;
+$breakpoint-md: $p2;
+
+$p3: 1170 !default;
+$breakpoint-lg: $p3;
+
+// Set your breakpoints' names and sizes
+$breakpoints: (
+	sm: $breakpoint-sm,
+	md: $breakpoint-md,
+	lg: $breakpoint-lg
+);
+
+// Set breakpoint unit
+$unit: 'px';
+// Set you max columns
+$max-cols: 12;
+// Set columns you want to ignore separated by comma e.g 7,8
+$ignore: '3';
+
+$prefix: \@;
+
+@mixin u-grid-setup($width, $namespace:'') {
+  
+  $prefix2: $prefix;
+  @if $namespace == '' {
+    $prefix2: '';
+  }  
+
+
+  @media screen and (min-width: $width) {
+
+    @for $i from 1 through $max-cols {
+
+      // If is in the ingore list do nothing
+      @if (not index($ignore, $i)) {
+
+        $j: 1;
+
+        @while $j <= $i {
+          .u-#{$j}\/#{$i}#{$prefix2}#{$namespace} {
+              width: percentage($j/$i);
+          }
+
+          $j: $j + 1;
+        }
+        
+      }
+    }
+  }
+}
+
+@each $version, $size in $breakpoints {
+  @include u-grid-setup( $size + $unit, $version );
+}
+
+@include u-grid-setup(0);
+
+
+
+@media screen and (max-width: $breakpoint-md + $unit) {
+  .u-show#{$prefix}sm {
+    display: block;
+  }
+}
+
+
+@media screen and (min-width: ($breakpoint-md+1) + $unit) and (max-width: $breakpoint-lg + $unit) {
+  .u-show#{$prefix}md {
+    display: block;
+  }
+}
+
+
+@media screen and (min-width: ($breakpoint-lg) + $unit) {
+  .u-show#{$prefix}lg {
+    display: block;
+  }
+}

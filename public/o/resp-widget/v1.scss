@@ -1,0 +1,41 @@
+/*
+  via https://codepen.io/mkstix6/pen/dPmYvV
+*/
+
+
+$p1: 1em !default;
+$spacing: $p1;
+
+$p2: 400px !default;
+$flex-min-width: $p2;
+
+$p3: 200px !default;
+$fixed-min-width: $p3;
+
+.o-resp-widget {
+  background:transparent;
+  padding: $spacing 0 0 $spacing;
+  margin-left: -$spacing;
+  margin-right: -$spacing;  
+  display: flex;
+  flex-wrap: wrap;
+  margin-top:auto;
+  margin-bottom:auto;
+}
+
+.o-resp-widget__fixed {
+  margin-right: $spacing;
+  margin-bottom: $spacing;
+  flex: 1 1 $fixed-min-width;
+  align-items: stretch;
+  display: flex;
+}
+
+
+.o-resp-widget__flex {
+  margin-bottom: $spacing;
+  margin-right: $spacing;
+  flex: 9999 1 $flex-min-width;
+  /*align-self: flex-start;*/
+  display: flex;
+}
