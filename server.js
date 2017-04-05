@@ -185,8 +185,8 @@ app.get("/get/:type/:name/:version/*", function (req, res) {
     var template = fs.readFileSync('./views/layouts/main.handlebars').toString();
     
     if (isInFrame){
-    template = '<div class="o-wrapper u-space-horz-1"><h1 class="u-h1">' + data.type + '-' + data.name + '</h1>' + template + 
-      '</div>'
+    template = '<div class="o-wrapper"><div class="u-space-horz-1"><h1 class="u-h1">' + data.type + '-' + data.name + '</h1>' + template + 
+      '</div></div>'
     }
     
     helper.readFileOptional(data.fileDemo, 'Kein Beispiel vorhanden', function(fileData){

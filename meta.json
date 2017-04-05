@@ -113,5 +113,23 @@
       "desc": "without the px measurement",
       "example": "940"
     }]
-  }    
+  },
+  "o-resp-widget": {
+    "status": 1,
+    "title": "A 2 columns grid with one fixed column. Wrapping is based upon width of parent container, not media queries.",
+    "desc": "",
+    "params": [{
+      "title": "spacing",
+      "desc": "Space between the two columns, vertical and horizontal",
+      "example": "10px"
+    },{
+      "title": "flex-min-width",
+      "desc": "Min-width of the flexible column, before it becomes 100% ",
+      "example": "400px"
+    },{
+      "title": "fixed-width",
+      "desc": "Width of the fixed column. Might become 100%",
+      "example": "200px"
+    }]
+  }
 }
