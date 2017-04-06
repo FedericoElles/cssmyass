@@ -1,0 +1,165 @@
+<!-- 
+$p1: 10px !default;
+$spacing-unit: $p1;
+
+// build utilty spacing classes, e.g. u-space-bottom-2
+// Not Responsive!
+@mixin spaces($space-columns) {
+
+    // Loop through the number of columns for each denominator of our fractions.
+    @each $space-col in $space-columns {
+
+            // Build a Class for single directions
+			@each $dir in ('right', 'left', 'top', 'bottom') {
+				.u-space-#{$dir}-#{$space-col} {
+					margin-#{$dir}: ($spacing-unit * $space-col);
+				}
+			}
+
+			// Build a Class for Vertical Directions
+			.u-space-vert-#{$space-col} {
+				margin-top: ($spacing-unit * $space-col);
+				margin-bottom: ($spacing-unit * $space-col);
+			}
+
+			// Build a class for Horizontal Directions
+			.u-space-horz-#{$space-col} {
+				margin-left: ($spacing-unit * $space-col);
+				margin-right: ($spacing-unit * $space-col);
+			}
+
+			// Build a class for all Directions
+			.u-space-all-#{$space-col}, .u-space-#{$space-col} {
+				margin: ($spacing-unit * $space-col);
+			}			
+
+    }
+
+}
+
+
+@include spaces(1 2 3 4);
+
+
+/* Padding */
+.u-pad-xs {
+	padding: $spacing-unit*(3/8);
+}			
+
+.u-pad-s {
+	padding: $spacing-unit*(5/8);
+}			
+
+
+.u-pad, .u-pad-m {
+	padding: $spacing-unit;
+}			
+
+.u-pad-l {
+	padding: $spacing-unit*1.5;
+}		
+
+.u-pad-xl {
+	padding: $spacing-unit*2;
+}
+-->
+
+<p>
+  u-space-{n}
+</p>
+<div class="u-border u-bc-1 u-space-bottom-2">
+  <div class="u-space-1 u-bg-2">
+    u-space-1
+  </div>
+</div>
+<div class="u-border u-bc-1 u-space-bottom-2">
+  <div class="u-space-2 u-bg-2">
+    u-space-2
+  </div>
+</div>
+<div class="u-border u-bc-1 u-space-bottom-2">
+  <div class="u-space-3 u-bg-2">
+    u-space-3
+  </div>
+</div>
+<div class="u-border u-bc-1 u-space-bottom-2">
+  <div class="u-space-4 u-bg-2">
+    u-space-4
+  </div>
+</div>
+
+
+<p>
+  u-space-left-{n}
+</p>
+<div class="u-border u-bc-1 u-space-bottom-2">
+  <div class="u-space-left-1 u-bg-2">
+    u-space-1
+  </div>
+</div>
+
+
+<p>
+  u-space-right-{n}
+</p>
+<div class="u-border u-bc-1 u-space-bottom-2">
+  <div class="u-space-right-1 u-bg-2">
+    u-space-1
+  </div>
+</div>
+
+
+<p>
+  u-space-vert-{n}
+</p>
+<div class="u-border u-bc-1 u-space-bottom-2">
+  <div class="u-space-vert-1 u-bg-2">
+    u-space-1
+  </div>
+</div>
+
+
+<p>
+  u-pad-xs
+</p>
+<div class="u-border u-bc-1 u-space-bottom-2">
+  <div class="u-pad-xs u-bg-2">
+    u-space-1
+  </div>
+</div>
+
+<p>
+  u-pad-s
+</p>
+<div class="u-border u-bc-1 u-space-bottom-2">
+  <div class="u-pad-s u-bg-2">
+    u-space-1
+  </div>
+</div>
+
+<p>
+  u-pad-m
+</p>
+<div class="u-border u-bc-1 u-space-bottom-2">
+  <div class="u-pad-m u-bg-2">
+    u-space-1
+  </div>
+</div>
+
+<p>
+  u-pad-l
+</p>
+<div class="u-border u-bc-1 u-space-bottom-2">
+  <div class="u-pad-l u-bg-2">
+    u-space-1
+  </div>
+</div>
+
+<p>
+  u-pad-xl
+</p>
+<div class="u-border u-bc-1 u-space-bottom-2">
+  <div class="u-pad-xl u-bg-2">
+    u-space-1
+  </div>
+</div>

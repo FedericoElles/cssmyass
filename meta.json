@@ -4,6 +4,21 @@
     "title": "Definition List",
     "desc": "Taken over from Bootstrap since it is so convenient. Since this is BEM, it does not rely on DL, DT and DD Tags."
   },
+  "u-shadow":{
+    "status": 3,
+    "title": "Material Design Shadows",
+    "desc": "Taken over from Material Design Specs."
+  },  
+  "u-space":{
+    "status": 3,
+    "title": "I need some room",
+    "desc": "Margin independent from components. Just add a class.",
+    "params": [{
+      "title": "spacing-unit",
+      "desc": "Minimum spacing. Multiplies will be made available.",
+      "example": "11px"
+    }]
+  },    
   "u-colors": {
     "status": 2,
     "title": "Drop in three colors and get a readymade theme. A dream?",
