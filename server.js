@@ -200,6 +200,14 @@ app.get("/get/:type/:name/:version/*", function (req, res) {
 });
 
 
+/*
+ Dynamic Partials
+ 
+ Handlebars.registerPartial('myPartial', '{{name}}')
+ 
+ 
+*/
+
 // listen for requests :)
 var listener = app.listen(process.env.PORT, function () {
   console.log('Your app is listening on port ' + listener.address().port);
